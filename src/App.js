@@ -7,6 +7,8 @@ import Home from './Pages/Home';
 import 'swiper/css';
 import "swiper/css/pagination";
 import Footer from './Componests/Shared/Footer';
+import SignIn from './Pages/SignIn';
+import Login from './Componests/SignIn/Login';
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/signin" element={<SignIn />}>
+            <Route index element={<Login />} />
+          </Route>
         </Routes>
       </div>
       <div>
