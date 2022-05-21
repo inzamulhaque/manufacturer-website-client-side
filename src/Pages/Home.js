@@ -5,6 +5,7 @@ import Tools from '../Componests/Home/Tools';
 import BusinessSummary from '../Componests/Home/BusinessSummary';
 import Reviews from '../Componests/Home/Reviews';
 import StockSummary from '../Componests/Home/StockSummary';
+import LatestTools from '../Componests/Home/LatestTools';
 
 const Home = () => {
     return (
@@ -16,6 +17,7 @@ const Home = () => {
                 <BusinessSummary />
                 <Reviews />
                 <StockSummary />
+                <LatestTools />
             </div>
         </>
     );
