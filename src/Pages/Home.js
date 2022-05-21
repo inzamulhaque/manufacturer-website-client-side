@@ -4,6 +4,7 @@ import Banner from '../Componests/Home/Banner';
 import Tools from '../Componests/Home/Tools';
 import BusinessSummary from '../Componests/Home/BusinessSummary';
 import Reviews from '../Componests/Home/Reviews';
+import StockSummary from '../Componests/Home/StockSummary';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
                 <Tools />
                 <BusinessSummary />
                 <Reviews />
+                <StockSummary />
             </div>
         </>
     );
