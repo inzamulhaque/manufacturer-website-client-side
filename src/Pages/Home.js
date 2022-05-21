@@ -3,6 +3,7 @@ import PageTitle from '../Componests/PageTitle/PageTitle';
 import Banner from '../Componests/Home/Banner';
 import Tools from '../Componests/Home/Tools';
 import BusinessSummary from '../Componests/Home/BusinessSummary';
+import Reviews from '../Componests/Home/Reviews';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
                 <Banner />
                 <Tools />
                 <BusinessSummary />
+                <Reviews />
             </div>
         </>
     );

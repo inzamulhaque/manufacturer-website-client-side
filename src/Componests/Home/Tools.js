@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
-import Tool from './Tool';
+import { Pagination, Navigation } from "swiper";
+import Tool from '../Shared/Tool';
 
 const Tools = () => {
     const [tools, setTools] = useState([1, 2, 3, 4, 5, 6]);
