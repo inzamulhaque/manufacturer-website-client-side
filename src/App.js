@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 // Import Swiper styles
 import 'swiper/css';
 import "swiper/css/pagination";
+import Footer from './Componests/Shared/Footer';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       </div>
       <div>
         {/* footer */}
+        <Footer />
       </div>
     </div>
   );
