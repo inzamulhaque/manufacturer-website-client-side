@@ -5,9 +5,6 @@ import slider1 from '../../images/slider1.jpg';
 import slider2 from '../../images/slider2.jpg';
 import slider3 from '../../images/slider3.jpg';
 
-// Import Swiper styles
-import "swiper/css/pagination";
-
 SwiperCore.use([Autoplay]);
 
 const Banner = () => {

@@ -1,10 +1,11 @@
 import './App.css';
 import Navbar from './Componests/Shared/Navbar';
+import { Route, Routes } from 'react-router-dom';
+import Home from './Pages/Home';
 
 // Import Swiper styles
 import 'swiper/css';
-import { Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home';
+import "swiper/css/pagination";
 
 function App() {
   return (
