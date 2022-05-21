@@ -14,7 +14,7 @@ const Banner = () => {
                 <div className="order-2 lg:order-1 flex items-center justify-center">
                     <div>
                         <h3 className="text-[25px] font-bold text-orange-500 text-center">IH Electronics</h3>
-                        <p className="text-[18px] font-medium text-center">
+                        <p className="text-[18px] font-medium text-center dark:text-white">
                             Best Electronics Tool Manufacturer
                         </p>
                     </div>

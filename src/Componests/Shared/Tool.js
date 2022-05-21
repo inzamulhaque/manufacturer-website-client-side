@@ -4,7 +4,7 @@ import slider1 from '../../images/slider1.jpg';
 const Tool = () => {
     return (
         <>
-            <div className='rounded-lg shadow-lg p-3'>
+            <div className='rounded-lg shadow-lg p-3 dark:bg-white'>
                 <div className="w-full h-[250px] mb-2">
                     <img src={slider1} alt="Tool Image" className='w-full h-full rounded-lg' />
                 </div>

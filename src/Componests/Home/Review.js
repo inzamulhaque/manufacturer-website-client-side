@@ -6,7 +6,7 @@ const Review = ({ review }) => {
     const { name, text, rating } = review || {};
     return (
         <>
-            <div className="flex items-center justify-center shadow-lg rounded-lg py-4">
+            <div className="flex items-center justify-center shadow-lg rounded-lg py-4 dark:bg-white">
                 <div>
                     <FontAwesomeIcon icon={faStar} className="text-[45px] text-orange-500" />
                 </div>

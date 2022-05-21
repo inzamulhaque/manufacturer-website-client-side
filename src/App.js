@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="bg-white dark:bg-black min-h-screen flex flex-col justify-between">
       <div>
         <Navbar />
         <Routes>
