@@ -3,8 +3,13 @@ import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faToggleOff, faToggleOn, faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../images/logo.jpg';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import useLogOut from '../../hooks/useLogOut';
 
 const Navbar = () => {
+    const [user, loading, error] = useAuthState(auth);
+    const [logOut] = useLogOut();
     const [menuOpen, setMenuOpen] = useState(false);
     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
@@ -51,9 +56,22 @@ const Navbar = () => {
                             <li className="py-2 px-3">
                                 <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/blogs">Blogs</NavLink>
                             </li>
-                            <li className="py-2 px-3">
-                                <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/signin">Sign In</NavLink>
-                            </li>
+
+                            {
+                                user ? <>
+                                    <li className="py-2 px-3">
+                                        <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/dashborad">Dashborad</NavLink>
+                                    </li>
+                                    <li className="py-2 px-3">
+                                        <button onClick={logOut} className="text-red-500">
+                                            SignOut
+                                        </button>
+                                    </li>
+                                </> : <li className="py-2 px-3">
+                                    <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/signin">Sign In</NavLink>
+                                </li>
+                            }
+
                         </ul>
 
                     </div>

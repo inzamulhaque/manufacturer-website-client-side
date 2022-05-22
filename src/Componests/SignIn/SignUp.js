@@ -1,23 +1,35 @@
 import React from 'react';
 import auth from '../../firebase.init';
+import useNewUser from '../../hooks/useNewUser';
+import Swal from 'sweetalert2'
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 
 const SignUp = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const [setUser] = useNewUser();
 
     const [
         createUserWithEmailAndPassword,
         user,
         loading,
-        error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+        signupError,
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating, profileError] = useUpdateProfile(auth);
 
     const navigate = useNavigate();
 
-    const onSubmit = data => {
-        console.log(data);
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
+        setUser(data.name, data.email, "user");
+        Swal.fire(
+            'Good job!',
+            'Sign Up Successfully',
+            'success'
+        );
+        navigate("/signin");
     }
 
     return (
@@ -46,6 +58,12 @@ const SignUp = () => {
                 </p>
 
                 <button type="submit" className="my-2 py-2 px-3 text-[20px] font-medium bg-blue-500 border-2 border-blue-500 text-white duration-300 ease-in-out hover:bg-transparent hover:text-blue-500 rounded-md">Sign Up</button>
+
+                {
+                    (signupError || profileError) && <p className="text-[18px] text-red-500 font-medium">
+                        {signupError?.code || profileError?.code}
+                    </p>
+                }
             </form>
         </>
     );
