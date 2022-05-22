@@ -5,7 +5,7 @@ import google from '../images/google.png';
 const SignIn = () => {
     return (
         <>
-            <div className="mx-auto my-5 w-full md:w-3/4 lg:1/2 dark:bg-white rounded-lg shadow-lg p-3">
+            <div className="mx-auto my-5 w-full md:w-3/4 lg:w-1/2 dark:bg-white rounded-lg shadow-lg p-3">
                 <Outlet />
                 <div className="flex items-center mt-3">
                     {/* add or line */}
