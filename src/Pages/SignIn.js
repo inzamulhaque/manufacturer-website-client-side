@@ -8,18 +8,17 @@ import google from '../images/google.png';
 const SignIn = () => {
     const [user, loading, error] = useAuthState(auth);
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-    const [setUser] = useNewUser();
+    const [setUser, token] = useNewUser();
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        const token = localStorage.getItem("jotToken");
         if (token && (user || googleUser)) {
             navigate(from, { replace: true });
         }
-    }, [user, googleUser]);
+    }, [user, googleUser, token]);
 
     if (googleUser && !googleLoading && !googleError) {
         setUser(googleUser?.user?.email, googleUser?.user?.displayName);

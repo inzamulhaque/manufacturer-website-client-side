@@ -1,5 +1,7 @@
+import { useState } from "react";
 
 const useNewUser = () => {
+    const [token, setToken] = useState(localStorage.getItem("jotToken") || "");
     function setUser(email, name, role = "user") {
         if (email) {
             fetch(`http://localhost:5000/user/${email}`, {
@@ -12,11 +14,12 @@ const useNewUser = () => {
                 .then(res => res.json())
                 .then(data => {
                     localStorage.setItem("jotToken", data.token);
+                    setToken(data.token);
                 })
         }
     }
 
-    return [setUser];
+    return [setUser, token];
 };
 
 export default useNewUser;

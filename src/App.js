@@ -12,6 +12,7 @@ import SignUp from './Componests/SignIn/SignUp';
 import 'swiper/css';
 import "swiper/css/pagination";
 import 'react-toastify/dist/ReactToastify.css';
+import ResetPass from './Componests/SignIn/ResetPass';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/signin" element={<SignIn />}>
             <Route index element={<Login />} />
             <Route path="newaccount" element={<SignUp />} />
+            <Route path="resetpass" element={<ResetPass />} />
           </Route>
         </Routes>
       </div>

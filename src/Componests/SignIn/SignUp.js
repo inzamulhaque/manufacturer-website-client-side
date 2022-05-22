@@ -68,6 +68,9 @@ const SignUp = () => {
                     </p>
                 }
             </form>
+            <p className="text-[18px] font-normal m-3 md:mx-5 lg:mx-7">
+                You've Account? <span className="text-orange-300 cursor-pointer" onClick={() => navigate("/signin")}> Sign In </span>
+            </p>
         </>
     );
 };

@@ -14,8 +14,10 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
-    const [setUser] = useNewUser();
+    const [setUser, token] = useNewUser();
 
     useEffect(() => {
         if (user) {
@@ -23,11 +25,11 @@ const Login = () => {
         }
     }, [user]);
 
-    // useEffect(() => {
-    //     if (user && token) {
-    //         navigate(from, { replace: true });
-    //     }
-    // }, [user, token]);
+    useEffect(() => {
+        if (user && token) {
+            navigate(from, { replace: true });
+        }
+    }, [user, token]);
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
