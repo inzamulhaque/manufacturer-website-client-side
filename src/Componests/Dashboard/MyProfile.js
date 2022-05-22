@@ -48,15 +48,15 @@ const MyProfile = () => {
                     <h4 className="dark:text-white text-[22px] font-bold">Name: {user?.displayName}</h4>
                     <p className="dark:text-white text-[20px] font-bold">Email: {user?.email}</p>
 
-                    {profile.edu &&
+                    {profile?.edu &&
                         <p className="dark:text-white text-[18px] font-medium">Education:{profile.edu} </p>
                     }
 
                     {
-                        profile.city && <p className="dark:text-white text-[18px] font-medium">City:{profile.city} </p>
+                        profile?.city && <p className="dark:text-white text-[18px] font-medium">City:{profile.city} </p>
                     }
                     {
-                        profile.linkedin && <a target="_blank" href={profile.linkedin} className="dark:text-white text-[18px] font-medium">LinkedIn Profile</a>
+                        profile?.linkedin && <a target="_blank" href={profile.linkedin} className="dark:text-white text-[18px] font-medium">LinkedIn Profile</a>
                     }
 
 
