@@ -3,8 +3,8 @@ import auth from "../firebase.init";
 
 const useLogOut = () => {
     const logOut = () => {
-        signOut(auth);
         localStorage.removeItem("jotToken");
+        signOut(auth);
     }
     return [logOut];
 };

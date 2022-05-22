@@ -5,8 +5,10 @@ import Swal from 'sweetalert2'
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import useLogOut from '../../hooks/useLogOut';
 
 const SignUp = () => {
+    const [logOut] = useLogOut();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [setUser] = useNewUser();
 
@@ -23,12 +25,13 @@ const SignUp = () => {
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        setUser(data.name, data.email, "user");
+        setUser(data.email, data.name);
         Swal.fire(
             'Good job!',
             'Sign Up Successfully',
             'success'
         );
+        logOut();
         navigate("/signin");
     }
 

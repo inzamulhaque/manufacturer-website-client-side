@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import useNewUser from '../../hooks/useNewUser';
 
 const Login = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
 
     const navigate = useNavigate();
 
+    const [setUser] = useNewUser();
+
+    useEffect(() => {
+        if (user) {
+            setUser(user?.user?.email, user?.user?.displayName);
+        }
+    }, [user]);
+
+    // useEffect(() => {
+    //     if (user && token) {
+    //         navigate(from, { replace: true });
+    //     }
+    // }, [user, token]);
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
     const onSubmit = data => {
-        console.log(data);
+        signInWithEmailAndPassword(data.email, data.password);
     }
 
     return (
@@ -31,6 +55,12 @@ const Login = () => {
 
                 <button type="submit" className="my-2 py-2 px-3 text-[20px] font-medium bg-blue-500 border-2 border-blue-500 text-white duration-300 ease-in-out hover:bg-transparent hover:text-blue-500 rounded-md">Sign In</button>
             </form>
+
+            {
+                error && <p className="text-[18px] text-red-500 font-medium">
+                    {error.code}
+                </p>
+            }
 
             <p className="text-[18px] font-normal m-3 md:mx-5 lg:mx-7">
                 You've No Account? <span className="text-orange-300 cursor-pointer" onClick={() => navigate("/signin/newaccount")}> Sign Up </span>

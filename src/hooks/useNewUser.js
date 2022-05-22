@@ -1,9 +1,9 @@
 
 const useNewUser = () => {
-    function setUser(name, email, role) {
-        if (name && email && role) {
+    function setUser(email, name, role = "user") {
+        if (email) {
             fetch(`http://localhost:5000/user/${email}`, {
-                method: "PUT",
+                method: "POST",
                 headers: {
                     "content-type": "application/json"
                 },
@@ -11,7 +11,7 @@ const useNewUser = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    localStorage.setItem("jotToken", data.token);
                 })
         }
     }
