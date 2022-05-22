@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useNewUser from '../../hooks/useNewUser';
+import PageTitle from '../PageTitle/PageTitle';
 
 const Login = () => {
     const [
@@ -39,6 +40,7 @@ const Login = () => {
 
     return (
         <>
+            <PageTitle title={"SignIn"} />
             <h3 className="text-[25px] text-center text-orange-500 font-bold">Sign In</h3>
 
             <form className='px-0 md:px-3 lg:px-5' onSubmit={handleSubmit(onSubmit)}>

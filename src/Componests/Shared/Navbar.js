@@ -36,8 +36,8 @@ const Navbar = () => {
                     <div>
                         {/* add open and closing menu icons for phone */}
                         {
-                            menuOpen ? <FontAwesomeIcon onClick={() => setMenuOpen(!menuOpen)} icon={faXmark} className='w-[30px] h-[30px] lg:hidden inline' /> :
-                                <FontAwesomeIcon onClick={() => setMenuOpen(!menuOpen)} icon={faBars} className='w-[30px] h-[30px] lg:hidden inline' />
+                            menuOpen ? <FontAwesomeIcon onClick={() => setMenuOpen(!menuOpen)} icon={faXmark} className='w-[30px] h-[30px] lg:hidden inline dark:text-white' /> :
+                                <FontAwesomeIcon onClick={() => setMenuOpen(!menuOpen)} icon={faBars} className='w-[30px] h-[30px] lg:hidden inline dark:text-white' />
                         }
 
                         <ul className={`text-[18px] lg:flex items-center lg:top-0 lg:relative font-semibold absolute duration-300 ease-in-out ${menuOpen ? "top-15 bg-black left-0 w-full text-left px-5 py-7 w-full block" : "top-[-300px] hidden"}`}>
@@ -60,7 +60,7 @@ const Navbar = () => {
                             {
                                 user ? <>
                                     <li className="py-2 px-3">
-                                        <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/dashborad">Dashborad</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "text-blue-500 font-bold" : "text-white lg:text-black dark:text-white"} to="/dashboard">Dashboard</NavLink>
                                     </li>
                                     <li className="py-2 px-3">
                                         <button onClick={logOut} className="text-red-500">

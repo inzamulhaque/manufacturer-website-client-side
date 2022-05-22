@@ -13,6 +13,8 @@ import 'swiper/css';
 import "swiper/css/pagination";
 import 'react-toastify/dist/ReactToastify.css';
 import ResetPass from './Componests/SignIn/ResetPass';
+import Dashboard from './Pages/Dashboard';
+import RequirAuth from './Componests/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -25,6 +27,11 @@ function App() {
             <Route index element={<Login />} />
             <Route path="newaccount" element={<SignUp />} />
             <Route path="resetpass" element={<ResetPass />} />
+          </Route>
+          <Route path="/dashboard" element={<RequirAuth>
+            <Dashboard />
+          </RequirAuth>}>
+
           </Route>
         </Routes>
       </div>

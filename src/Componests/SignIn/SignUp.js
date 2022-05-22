@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import useLogOut from '../../hooks/useLogOut';
+import PageTitle from '../PageTitle/PageTitle';
 
 const SignUp = () => {
     const [logOut] = useLogOut();
@@ -37,6 +38,7 @@ const SignUp = () => {
 
     return (
         <>
+            <PageTitle title={"SignUp"} />
             <h3 className="text-[25px] text-center text-orange-500 font-bold">Sign Up</h3>
 
             <form className='px-0 md:px-3 lg:px-5' onSubmit={handleSubmit(onSubmit)}>

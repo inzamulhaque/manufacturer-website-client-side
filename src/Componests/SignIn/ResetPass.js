@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import PageTitle from '../PageTitle/PageTitle';
 
 const ResetPass = () => {
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
@@ -24,6 +25,7 @@ const ResetPass = () => {
     }
     return (
         <>
+            <PageTitle title={"Reset Password"} />
             <h3 className="text-[25px] text-center text-orange-500 font-bold">Reset Password</h3>
 
             <form className='px-0 md:px-3 lg:px-5' onSubmit={handleSubmit(onSubmit)}>
