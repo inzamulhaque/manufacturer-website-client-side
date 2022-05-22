@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ResetPass from './Componests/SignIn/ResetPass';
 import Dashboard from './Pages/Dashboard';
 import RequirAuth from './Componests/RequireAuth/RequireAuth';
+import MyProfile from './Componests/Dashboard/MyProfile';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
           <Route path="/dashboard" element={<RequirAuth>
             <Dashboard />
           </RequirAuth>}>
-
+            <Route index element={<MyProfile />} />
           </Route>
         </Routes>
       </div>

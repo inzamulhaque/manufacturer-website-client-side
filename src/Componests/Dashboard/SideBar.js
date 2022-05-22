@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
 
-const SideBar = () => {
+const SideBar = ({ myUser }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     return (
         <>
@@ -19,12 +19,16 @@ const SideBar = () => {
                     </li>
 
                     {/* just for normal user */}
-                    <li className="py-3 text-center rounded-lg">
-                        <NavLink to="/dashboard/myorders" className={({ isActive }) => isActive ? "font-bold bg-orange-500" : ""}>My Orders</NavLink>
-                    </li>
-                    <li className="py-3 text-center rounded-lg">
-                        <NavLink to="/dashboard/addreview" className={({ isActive }) => isActive ? "font-bold bg-orange-500" : ""}>Add A Review</NavLink>
-                    </li>
+                    {myUser?.role === "user" &&
+                        <>
+                            <li className="py-3 text-center rounded-lg">
+                                <NavLink to="/dashboard/myorders" className={({ isActive }) => isActive ? "font-bold bg-orange-500" : ""}>My Orders</NavLink>
+                            </li>
+                            <li className="py-3 text-center rounded-lg">
+                                <NavLink to="/dashboard/addreview" className={({ isActive }) => isActive ? "font-bold bg-orange-500" : ""}>Add A Review</NavLink>
+                            </li>
+                        </>
+                    }
                     {/* just for normal user */}
                 </ul>
             </div>
