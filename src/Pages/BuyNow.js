@@ -62,7 +62,7 @@ const BuyNow = () => {
                     <p className="text-[18px] font-normal">Description: {desc}</p>
 
                     <form className='px-0 md:px-3 lg:px-5' onSubmit={onSubmit}>
-                        <input type="number" name="qty" className="w-full border-b-2 border-black text-[22px] font-medium focus:outline-none rounded-lg px-2 my-2" placeholder='Enter Item Quantity' onChange={(e) => setQty(e.target.value)} value={qty} min={minQty} max={availableQty} />
+                        <input type="number" name="qty" className="w-full border-b-2 border-black text-[22px] font-medium focus:outline-none rounded-lg px-2 my-2" placeholder='Enter Item Quantity' onChange={(e) => setQty(e.target.value)} value={qty} min={minQty} max={availableQty} required />
 
                         <button type='submit' className="my-2 py-2 px-3 text-[20px] font-medium bg-blue-500 border-2 border-blue-500 text-white duration-300 ease-in-out hover:bg-transparent hover:text-blue-500 rounded-md">Order Now</button>
                     </form>

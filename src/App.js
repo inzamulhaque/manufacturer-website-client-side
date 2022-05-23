@@ -7,20 +7,22 @@ import Footer from './Componests/Shared/Footer';
 import SignIn from './Pages/SignIn';
 import Login from './Componests/SignIn/Login';
 import SignUp from './Componests/SignIn/SignUp';
-
-// Import styles
-import 'swiper/css';
-import "swiper/css/pagination";
-import 'react-toastify/dist/ReactToastify.css';
 import ResetPass from './Componests/SignIn/ResetPass';
 import Dashboard from './Pages/Dashboard';
 import RequirAuth from './Componests/RequireAuth/RequireAuth';
 import RequirAdmin from './Componests/RequireAuth/RequirAdmin';
+import RequirUser from './Componests/RequireAuth/RequireUser';
 import MyProfile from './Componests/Dashboard/MyProfile';
 import AddItem from './Componests/Dashboard/AddItem';
 import ReadMore from './Componests/Shared/ReadMore';
 import BuyNow from './Pages/BuyNow';
 import PayNow from './Pages/PayNow';
+import AddReview from './Componests/Dashboard/AddReview';
+
+// Import styles
+import 'swiper/css';
+import "swiper/css/pagination";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -38,6 +40,9 @@ function App() {
             <Dashboard />
           </RequirAuth>}>
             <Route index element={<MyProfile />} />
+            <Route path="addreview" element={<RequirUser>
+              <AddReview />
+            </RequirUser>} />
             <Route path="additem" element={<RequirAdmin>
               <AddItem />
             </RequirAdmin>} />

@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import Review from './Review';
 
 const Reviews = () => {
-    const [rating, setRating] = useState([
-        { _id: 1, name: "name", rating: 4, text: "best tool" },
-        { _id: 2, name: "name", rating: 4.9, text: "best tool" },
-        { _id: 3, name: "name", rating: 4.5, text: "best tool" },
-        { _id: 4, name: "name", rating: 4.3, text: "best tool" },
-        { _id: 5, name: "name", rating: 5, text: "best tool" },
-        { _id: 6, name: "name", rating: 4.1, text: "best tool" }
-    ]);
+    const [rating, setRating] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:5000/reviews")
+            .then(res => res.json())
+            .then(data => setRating(data));
+    }, [])
+
     return (
         <>
             <div className="my-5 rounded-lg shadow-md">

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const Review = ({ review }) => {
-    const { name, text, rating } = review || {};
+    const { name, ratingMsg, rating } = review || {};
     return (
         <>
             <div className="flex items-center justify-center shadow-lg rounded-lg py-4 dark:bg-white">
@@ -13,11 +13,8 @@ const Review = ({ review }) => {
                 </div>
                 <div className='pl-2'>
                     <h4 className="text-[22px] font-bold">{name}</h4>
-                    <p className="text-[18px] font-medium">{text}</p>
-                    {/* {
-                        [...Array(Math.round(rating))].map((rating, index) => <FontAwesomeIcon key={index} icon={faStar} className="text-[18px] text-orange-500" />)
-                    } */}
-                    <p className='flex items-center'>Rating: <Rating initialRating={rating} readonly fullSymbol={<img src="https://dreyescat.github.io/react-rating/assets/images/star-full.png" alt='Rating Image' className="icon" />} /> {rating}</p>
+                    <p className="text-[18px] font-medium">{ratingMsg}</p>
+                    <p className='flex items-center'>Rating: <Rating initialRating={parseFloat(rating)} readonly fullSymbol={<img src="https://dreyescat.github.io/react-rating/assets/images/star-full.png" alt='Rating Image' className="icon" />} /> {rating}</p>
                 </div>
             </div>
         </>
