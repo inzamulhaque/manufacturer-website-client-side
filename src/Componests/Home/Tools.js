@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import Tool from '../Shared/Tool';
+import Loading from '../RequireAuth/Loading';
 
 const Tools = () => {
-    const [tools, setTools] = useState([1, 2, 3, 4, 5, 6]);
+    const [tools, setTools] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/homeitem?limit=6")
+            .then(res => res.json())
+            .then(data => setTools(data))
+    }, []);
 
     return (
         <>
@@ -42,8 +49,8 @@ const Tools = () => {
                         modules={[Pagination, Navigation]}
                     >
                         {
-                            tools.map(tool => <SwiperSlide key={tool}>
-                                <Tool />
+                            tools?.map(tool => <SwiperSlide key={tool._id}>
+                                <Tool tool={tool} />
                             </SwiperSlide>)
                         }
                     </Swiper>

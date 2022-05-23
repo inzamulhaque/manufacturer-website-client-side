@@ -83,7 +83,7 @@ const AddItem = () => {
                     {errors.minQty?.type === 'required' && "Enter Minimum Order Quantity"}
                 </p>
 
-                <input type="file" className="w-full border-b-2 border-black text-[22px] font-medium focus:outline-none rounded-lg px-2 my-2" {...register("image", { required: true })} placeholder="Enter Product Image" />
+                <input type="file" className="w-full border-b-2 border-black text-[22px] font-medium focus:outline-none rounded-lg px-2 my-2 dark:text-white" {...register("image", { required: true })} placeholder="Enter Product Image" />
 
                 <p className="text-[18px] text-red-500 font-medium">
                     {errors.image?.type === 'required' && "Enter Product Image"}

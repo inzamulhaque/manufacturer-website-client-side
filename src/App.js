@@ -18,6 +18,7 @@ import RequirAuth from './Componests/RequireAuth/RequireAuth';
 import RequirAdmin from './Componests/RequireAuth/RequirAdmin';
 import MyProfile from './Componests/Dashboard/MyProfile';
 import AddItem from './Componests/Dashboard/AddItem';
+import ReadMore from './Componests/Shared/ReadMore';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
               <AddItem />
             </RequirAdmin>} />
           </Route>
+          <Route path="/readmore/:id" element={<ReadMore />} />
         </Routes>
       </div>
       <ToastContainer />
