@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Tool = ({ tool }) => {
-    let { _id, name, price, img, availableQty, minQty, desc } = tool || {};
+    const { _id, name, price, img, availableQty, minQty, desc } = tool || {};
 
     const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const Tool = ({ tool }) => {
                     </> : desc
                 }</p>
 
-                <button className="my-2 py-2 px-3 text-[20px] font-medium bg-blue-500 border-2 border-blue-500 text-white duration-300 ease-in-out hover:bg-transparent hover:text-blue-500 rounded-md">Buy Now</button>
+                <button onClick={() => navigate(`/buynow/${_id}`)} className="my-2 py-2 px-3 text-[20px] font-medium bg-blue-500 border-2 border-blue-500 text-white duration-300 ease-in-out hover:bg-transparent hover:text-blue-500 rounded-md">Buy Now</button>
             </div>
         </>
     );

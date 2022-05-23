@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, LineChart, Line, Legend } from 'recharts';
 
 const StockSummary = () => {
-    const [stock, setStock] = useState([
-        { _id: 1, name: "name", stock: 700 },
-        { _id: 2, name: "name", stock: 900 },
-        { _id: 3, name: "name", stock: 990 },
-        { _id: 4, name: "name", stock: 750 },
-        { _id: 5, name: "name", stock: 990 }
-    ]);
+    const [stock, setStock] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/stocksummary")
+            .then(res => res.json())
+            .then(data => setStock(data));
+    }, [])
+
 
     return (
         <>
@@ -24,7 +25,7 @@ const StockSummary = () => {
                             <YAxis />
                             <Tooltip />
                             <Legend />
-                            <Line type="monotone" dataKey="stock" stroke="#8884d8" />
+                            <Line type="monotone" dataKey="availableQty" stroke="#8884d8" />
                         </LineChart>
                     </ResponsiveContainer>
                 </div>

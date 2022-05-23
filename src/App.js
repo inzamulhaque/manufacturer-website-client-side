@@ -19,6 +19,8 @@ import RequirAdmin from './Componests/RequireAuth/RequirAdmin';
 import MyProfile from './Componests/Dashboard/MyProfile';
 import AddItem from './Componests/Dashboard/AddItem';
 import ReadMore from './Componests/Shared/ReadMore';
+import BuyNow from './Pages/BuyNow';
+import PayNow from './Pages/PayNow';
 
 function App() {
   return (
@@ -41,6 +43,12 @@ function App() {
             </RequirAdmin>} />
           </Route>
           <Route path="/readmore/:id" element={<ReadMore />} />
+          <Route path="/buynow/:id" element={<RequirAuth>
+            <BuyNow />
+          </RequirAuth>} />
+          <Route path="/paynow/:id" element={<RequirAuth>
+            <PayNow />
+          </RequirAuth>} />
         </Routes>
       </div>
       <ToastContainer />

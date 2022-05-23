@@ -11,7 +11,7 @@ const ReadMore = () => {
             .then(res => res.json())
             .then(data => setTool(data));
     }, [id]);
-    let { _id, name, price, img, availableQty, minQty, desc } = tool || {};
+    const { _id, name, price, img, availableQty, minQty, desc } = tool || {};
     return (
         <>
             <div className="my-4">
