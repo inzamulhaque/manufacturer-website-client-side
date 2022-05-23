@@ -19,9 +19,9 @@ const AddItem = () => {
             body: formData
         })
             .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    const img = data?.data?.url;
+            .then(result => {
+                if (result.success) {
+                    const img = result?.data?.url;
 
                     const item = {
                         email: user?.email,
