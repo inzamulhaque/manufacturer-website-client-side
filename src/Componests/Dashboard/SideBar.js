@@ -2,9 +2,17 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faBars } from '@fortawesome/free-solid-svg-icons';
+import useAdmin from '../../hooks/useAdmin';
+import Loading from '../../Componests/RequireAuth/Loading';
 
-const SideBar = ({ myUser }) => {
+const SideBar = ({ myUser, user }) => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [admin, adminLoading] = useAdmin(user);
+
+    if (adminLoading) {
+        return <Loading />
+    }
+
     return (
         <>
             {/* add menu toggle button for phone */}
@@ -13,23 +21,34 @@ const SideBar = ({ myUser }) => {
                     <FontAwesomeIcon onClick={() => setMenuOpen(!menuOpen)} icon={faBars} className='w-[30px] h-[30px] lg:hidden inline dark:text-white' />
             }
             <div className={`absolute w-full ${menuOpen ? "block" : "hidden"} lg:relative lg:block`}>
-                <ul className="text-white text-[22px] font-semibold bg-black">
+                <ul className="text-black dark:text-white text-[22px] font-semibold">
                     <li className="py-3 text-center rounded-lg">
-                        <NavLink to="/dashboard/myprofile" className={({ isActive }) => isActive ? "font-bold bg-orange-500" : ""}>My Profile</NavLink>
+                        <NavLink to="/dashboard/myprofile" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>My Profile</NavLink>
                     </li>
 
                     {/* just for normal user */}
                     {myUser?.role === "user" &&
                         <>
                             <li className="py-3 text-center rounded-lg">
-                                <NavLink to="/dashboard/myorders" className={({ isActive }) => isActive ? "font-bold bg-orange-500" : ""}>My Orders</NavLink>
+                                <NavLink to="/dashboard/myorders" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>My Orders</NavLink>
                             </li>
                             <li className="py-3 text-center rounded-lg">
-                                <NavLink to="/dashboard/addreview" className={({ isActive }) => isActive ? "font-bold bg-orange-500" : ""}>Add A Review</NavLink>
+                                <NavLink to="/dashboard/addreview" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>Add A Review</NavLink>
                             </li>
                         </>
                     }
                     {/* just for normal user */}
+
+                    {/* just for admin */}
+                    {admin && <>
+                        <li className="py-3 text-center rounded-lg">
+                            <NavLink to="/dashboard/allorders" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>View Order(s)</NavLink>
+                        </li>
+                        <li className="py-3 text-center rounded-lg">
+                            <NavLink to="/dashboard/additem" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>Add Item</NavLink>
+                        </li>
+                    </>}
+                    {/* just for admin */}
                 </ul>
             </div>
         </>

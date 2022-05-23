@@ -1,4 +1,5 @@
 import React from 'react';
+import Rating from 'react-rating';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,9 +14,10 @@ const Review = ({ review }) => {
                 <div className='pl-2'>
                     <h4 className="text-[22px] font-bold">{name}</h4>
                     <p className="text-[18px] font-medium">{text}</p>
-                    {
+                    {/* {
                         [...Array(Math.round(rating))].map((rating, index) => <FontAwesomeIcon key={index} icon={faStar} className="text-[18px] text-orange-500" />)
-                    }
+                    } */}
+                    <p className='flex items-center'>Rating: <Rating initialRating={rating} readonly fullSymbol={<img src="https://dreyescat.github.io/react-rating/assets/images/star-full.png" alt='Rating Image' className="icon" />} /> {rating}</p>
                 </div>
             </div>
         </>
