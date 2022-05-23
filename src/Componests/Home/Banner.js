@@ -11,7 +11,7 @@ const Banner = () => {
     return (
         <>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 my-3 lg:h-[500px]">
-                <div className="order-2 lg:order-1 flex items-center justify-center">
+                <div className="order-2 lg:order-1 flex items-center justify-center py-10 lg:py-0">
                     <div>
                         <h3 className="text-[25px] font-bold text-orange-500 text-center">IH Electronics</h3>
                         <p className="text-[18px] font-medium text-center dark:text-white">
