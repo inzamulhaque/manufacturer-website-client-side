@@ -20,6 +20,7 @@ const MyProfile = () => {
     }
 
     const onSubmit = async data => {
+        const phone = data.phone || profile?.phone;
         const edu = data.edu || profile?.edu;
         const city = data.city || profile?.city;
         const linkedin = data.linkedin || profile?.linkedin;
@@ -30,7 +31,7 @@ const MyProfile = () => {
                 "content-type": "application/json",
                 "authorization": `Bearer ${localStorage.getItem('jotToken')}`
             },
-            body: JSON.stringify({ edu, city, linkedin })
+            body: JSON.stringify({ phone, edu, city, linkedin })
         })
             .then(res => res.json())
             .then(data => {
@@ -48,7 +49,13 @@ const MyProfile = () => {
                     <h4 className="dark:text-white text-[22px] font-bold">Name: {user?.displayName}</h4>
                     <p className="dark:text-white text-[20px] font-bold">Email: {user?.email}</p>
 
-                    {profile?.edu &&
+                    {
+                        profile?.phone &&
+                        <p className="dark:text-white text-[18px] font-medium">Phone Number:{profile.phone} </p>
+                    }
+
+                    {
+                        profile?.edu &&
                         <p className="dark:text-white text-[18px] font-medium">Education:{profile.edu} </p>
                     }
 
@@ -65,6 +72,8 @@ const MyProfile = () => {
                 <div className="rounded-lg shadow-lg">
                     <h4 className="dark:text-white my-3 text-[22px] text-center font-bold">Update Your Profile</h4>
                     <form className='px-0 md:px-3 lg:px-5' onSubmit={handleSubmit(onSubmit)}>
+                        <input type="number" className="w-full border-b-2 border-black text-[22px] font-medium focus:outline-none rounded-lg px-2 my-2" {...register("phone")} placeholder="Enter Your Phone Number" />
+
                         <input type="text" className="w-full border-b-2 border-black text-[22px] font-medium focus:outline-none rounded-lg px-2 my-2" {...register("edu")} placeholder="Enter Your Education" />
 
                         <input type="text" className="w-full border-b-2 border-black text-[22px] font-medium focus:outline-none rounded-lg px-2 my-2" {...register("city")} placeholder="Enter Your City Name" />

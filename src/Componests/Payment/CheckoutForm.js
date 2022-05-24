@@ -1,6 +1,5 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
-import Loading from '../RequireAuth/Loading';
 
 const CheckoutForm = ({ order }) => {
     const stripe = useStripe();
@@ -9,7 +8,6 @@ const CheckoutForm = ({ order }) => {
     const [success, setSuccess] = useState("");
     const [clientSecret, setClientSecret] = useState("");
     const [transactionId, setTransactionId] = useState('');
-    const [processing, setProcessing] = useState(false);
 
     // destructuring order info
     const { _id, totalCost, email, name } = order || {};
@@ -33,8 +31,6 @@ const CheckoutForm = ({ order }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
-        setProcessing(true);
 
         if (!stripe || !elements) {
             return;
@@ -70,7 +66,6 @@ const CheckoutForm = ({ order }) => {
 
         if (intentError) {
             setCardError(intentError?.message);
-            setProcessing(false);
         } else {
             setCardError("");
             setSuccess('Congrats! Your payment is completed.');
@@ -91,11 +86,11 @@ const CheckoutForm = ({ order }) => {
                 body: JSON.stringify(payment)
             }).then(res => res.json())
                 .then(data => {
-                    setProcessing(false);
                     console.log(data);
                 })
         }
     }
+
     return (
         <>
             <form onSubmit={handleSubmit}>

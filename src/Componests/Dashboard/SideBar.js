@@ -42,10 +42,10 @@ const SideBar = ({ myUser, user }) => {
                     {/* just for admin */}
                     {admin && <>
                         <li className="py-3 text-center rounded-lg">
-                            <NavLink to="/dashboard/allorders" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>View Order(s)</NavLink>
+                            <NavLink to="/dashboard/additem" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>Add Item</NavLink>
                         </li>
                         <li className="py-3 text-center rounded-lg">
-                            <NavLink to="/dashboard/additem" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>Add Item</NavLink>
+                            <NavLink to="/dashboard/manageOrders" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>Manage Orders</NavLink>
                         </li>
                     </>}
                     {/* just for admin */}
