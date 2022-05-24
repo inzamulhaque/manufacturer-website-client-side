@@ -30,8 +30,10 @@ const BuyNow = () => {
             itemName: name,
             itemId: _id,
             itemPrice: price,
+            img: img,
             qty: qty,
             paid: false,
+            status: "unpaid",
             totalCost: totalPrice
         };
 

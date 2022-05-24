@@ -20,10 +20,10 @@ const SideBar = ({ myUser, user }) => {
                 menuOpen ? <FontAwesomeIcon onClick={() => setMenuOpen(!menuOpen)} icon={faXmark} className='w-[30px] h-[30px] lg:hidden inline dark:text-white' /> :
                     <FontAwesomeIcon onClick={() => setMenuOpen(!menuOpen)} icon={faBars} className='w-[30px] h-[30px] lg:hidden inline dark:text-white' />
             }
-            <div className={`absolute w-full ${menuOpen ? "block" : "hidden"} lg:relative lg:block`}>
+            <div className={`bg-black lg:bg-transparent absolute w-full ${menuOpen ? "block" : "hidden"} lg:relative lg:block`}>
                 <ul className="text-black dark:text-white text-[22px] font-semibold">
                     <li className="py-3 text-center rounded-lg">
-                        <NavLink to="/dashboard/myprofile" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>My Profile</NavLink>
+                        <NavLink to="/dashboard" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>My Profile</NavLink>
                     </li>
 
                     {/* just for normal user */}

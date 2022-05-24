@@ -1,4 +1,3 @@
-import './App.css';
 import Navbar from './Componests/Shared/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -18,11 +17,13 @@ import ReadMore from './Componests/Shared/ReadMore';
 import BuyNow from './Pages/BuyNow';
 import PayNow from './Pages/PayNow';
 import AddReview from './Componests/Dashboard/AddReview';
+import MyOrder from './Componests/Dashboard/MyOrder';
 
 // Import styles
 import 'swiper/css';
 import "swiper/css/pagination";
 import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
             <Dashboard />
           </RequirAuth>}>
             <Route index element={<MyProfile />} />
+            <Route path="myorders" element={<RequirUser>
+              <MyOrder />
+            </RequirUser>} />
             <Route path="addreview" element={<RequirUser>
               <AddReview />
             </RequirUser>} />
