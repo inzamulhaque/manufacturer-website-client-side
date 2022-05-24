@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     const [countDelete, setCountDelete] = useState(0);
+    const navigate = useNavigate();
 
     // get orders for this user
     useEffect(() => {
@@ -91,9 +93,15 @@ const MyOrder = () => {
                                     {order?.status}
                                 </td>
                                 <td className='text-center border md:border-2 border-slate-300 md:py-1 md:px-2'>
-                                    <button className="my-2 py-2 px-3 text-[20px] font-medium bg-red-500 border-2 border-red-500 text-white duration-300 ease-in-out hover:bg-transparent hover:text-red-500 rounded-md" disabled={order?.paid} onClick={() => handleDelete(order)}>
-                                        Cancel Order
-                                    </button>
+                                    {order?.paid || <>
+                                        <button className="my-2 py-2 px-2 text-[20px] font-medium bg-red-500 border-2 border-red-500 text-white duration-300 ease-in-out hover:bg-transparent hover:text-red-500 rounded-md" disabled={order?.paid} onClick={() => handleDelete(order)}>
+                                            Cancel Order
+                                        </button>
+                                        <button className="my-2 py-2 px-2 text-[20px] font-medium bg-blue-500 border-2 border-blue-500 text-white duration-300 ease-in-out hover:bg-transparent hover:text-blue-500 rounded-md" disabled={order?.paid} onClick={() => navigate(`/paynow/${order._id}`)}>
+                                            Pay Now
+                                        </button>
+                                    </>}
+
                                 </td>
                             </tr>)
                         }
