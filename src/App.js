@@ -18,7 +18,6 @@ import BuyNow from './Pages/BuyNow';
 import PayNow from './Pages/PayNow';
 import AddReview from './Componests/Dashboard/AddReview';
 import MyOrder from './Componests/Dashboard/MyOrder';
-
 import ManageOrders from './Componests/Dashboard/ManageOrders';
 
 // Import styles
@@ -26,6 +25,7 @@ import './App.css';
 import 'swiper/css';
 import "swiper/css/pagination";
 import 'react-toastify/dist/ReactToastify.css';
+import NotFound from './Pages/NotFound';
 
 function App() {
   return (
@@ -63,6 +63,7 @@ function App() {
           <Route path="/paynow/:id" element={<RequirAuth>
             <PayNow />
           </RequirAuth>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <ToastContainer />
