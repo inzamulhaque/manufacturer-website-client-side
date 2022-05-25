@@ -29,6 +29,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import NotFound from './Pages/NotFound';
 import AllItems from './Pages/AllItems';
 import EditItem from './Componests/Dashboard/EditItem';
+import UpdateQty from './Componests/Dashboard/UpdateQty';
 
 function App() {
   return (
@@ -67,6 +68,13 @@ function App() {
             <RequirAuth>
               <RequirAdmin>
                 <EditItem />
+              </RequirAdmin>
+            </RequirAuth>
+          } />
+          <Route path="/updateQty/:id" element={
+            <RequirAuth>
+              <RequirAdmin>
+                <UpdateQty />
               </RequirAdmin>
             </RequirAuth>
           } />
