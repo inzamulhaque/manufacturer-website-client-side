@@ -26,6 +26,7 @@ import 'swiper/css';
 import "swiper/css/pagination";
 import 'react-toastify/dist/ReactToastify.css';
 import NotFound from './Pages/NotFound';
+import AllItems from './Pages/AllItems';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/allitems" element={<AllItems />} />
           <Route path="/signin" element={<SignIn />}>
             <Route index element={<Login />} />
             <Route path="newaccount" element={<SignUp />} />

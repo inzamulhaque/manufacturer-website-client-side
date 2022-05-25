@@ -47,6 +47,9 @@ const SideBar = ({ myUser, user }) => {
                         <li className="py-3 text-center rounded-lg">
                             <NavLink to="/dashboard/manageOrders" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>Manage Orders</NavLink>
                         </li>
+                        <li className="py-3 text-center rounded-lg">
+                            <NavLink to="/dashboard/manageItems" className={({ isActive }) => isActive ? "font-bold bg-orange-500 py-2 px-5 rounded-lg" : ""}>Manage Items</NavLink>
+                        </li>
                     </>}
                     {/* just for admin */}
                 </ul>
