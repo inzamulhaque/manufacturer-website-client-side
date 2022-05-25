@@ -19,6 +19,7 @@ import PayNow from './Pages/PayNow';
 import AddReview from './Componests/Dashboard/AddReview';
 import MyOrder from './Componests/Dashboard/MyOrder';
 import ManageOrders from './Componests/Dashboard/ManageOrders';
+import ManageItems from './Componests/Dashboard/ManageItems';
 
 // Import styles
 import './App.css';
@@ -27,6 +28,7 @@ import "swiper/css/pagination";
 import 'react-toastify/dist/ReactToastify.css';
 import NotFound from './Pages/NotFound';
 import AllItems from './Pages/AllItems';
+import EditItem from './Componests/Dashboard/EditItem';
 
 function App() {
   return (
@@ -57,7 +59,17 @@ function App() {
             <Route path="manageOrders" element={<RequirAdmin>
               <ManageOrders />
             </RequirAdmin>} />
+            <Route path="manageItems" element={<RequirAdmin>
+              <ManageItems />
+            </RequirAdmin>} />
           </Route>
+          <Route path="/edit/:id" element={
+            <RequirAuth>
+              <RequirAdmin>
+                <EditItem />
+              </RequirAdmin>
+            </RequirAuth>
+          } />
           <Route path="/readmore/:id" element={<ReadMore />} />
           <Route path="/buynow/:id" element={<RequirAuth>
             <BuyNow />

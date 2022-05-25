@@ -12,7 +12,12 @@ const BuyNow = () => {
 
     // fetch data
     useEffect(() => {
-        fetch(`http://localhost:5000/item/${id}`)
+        fetch(`http://localhost:5000/item/${id}`, {
+            method: "GET",
+            headers: {
+                "authorization": `Bearer ${localStorage.getItem('jotToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 setTool(data);
