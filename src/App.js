@@ -2,6 +2,7 @@ import Navbar from './Componests/Shared/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Home from './Pages/Home';
+import Protfolio from './Pages/Protfolio';
 import Footer from './Componests/Shared/Footer';
 import SignIn from './Pages/SignIn';
 import Login from './Componests/SignIn/Login';
@@ -40,6 +41,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/allitems" element={<AllItems />} />
+          <Route path="/portfolio" element={<Protfolio />} />
           <Route path="/signin" element={<SignIn />}>
             <Route index element={<Login />} />
             <Route path="newaccount" element={<SignUp />} />
