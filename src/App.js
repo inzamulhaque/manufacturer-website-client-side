@@ -20,16 +20,17 @@ import AddReview from './Componests/Dashboard/AddReview';
 import MyOrder from './Componests/Dashboard/MyOrder';
 import ManageOrders from './Componests/Dashboard/ManageOrders';
 import ManageItems from './Componests/Dashboard/ManageItems';
+import NotFound from './Pages/NotFound';
+import AllItems from './Pages/AllItems';
+import EditItem from './Componests/Dashboard/EditItem';
+import UpdateQty from './Componests/Dashboard/UpdateQty';
+import ManageUser from './Componests/Dashboard/ManageUser';
 
 // Import styles
 import './App.css';
 import 'swiper/css';
 import "swiper/css/pagination";
 import 'react-toastify/dist/ReactToastify.css';
-import NotFound from './Pages/NotFound';
-import AllItems from './Pages/AllItems';
-import EditItem from './Componests/Dashboard/EditItem';
-import UpdateQty from './Componests/Dashboard/UpdateQty';
 
 function App() {
   return (
@@ -62,6 +63,9 @@ function App() {
             </RequirAdmin>} />
             <Route path="manageItems" element={<RequirAdmin>
               <ManageItems />
+            </RequirAdmin>} />
+            <Route path="manageUser" element={<RequirAdmin>
+              <ManageUser />
             </RequirAdmin>} />
           </Route>
           <Route path="/edit/:id" element={

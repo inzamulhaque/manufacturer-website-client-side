@@ -7,7 +7,7 @@ const ReadMore = () => {
     const [tool, setTool] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/item/${id}`)
+        fetch(`http://localhost:5000/readmore/${id}`)
             .then(res => res.json())
             .then(data => setTool(data));
     }, [id]);
