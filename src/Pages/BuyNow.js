@@ -85,7 +85,7 @@ const BuyNow = () => {
                             <input type="number" name="qty" className="w-full border-b-2 border-black text-[22px] font-medium focus:outline-none rounded-lg px-2 my-2" placeholder='Enter Item Quantity' onChange={(e) => setQty(e.target.value)} value={qty} min={minQty} max={availableQty} required />
 
                             {
-                                minQty > qty &&
+                                parseInt(qty) < parseInt(minQty) &&
                                 <p className="text-[20px] text-red-500 font-medium">
                                     Please Order Minimum {minQty} Quantity
                                 </p>
@@ -95,7 +95,7 @@ const BuyNow = () => {
 
                             <input type="text" name="address" className="w-full border-b-2 border-black text-[22px] font-medium focus:outline-none rounded-lg px-2 my-2" placeholder='Enter Your Address' required />
 
-                            <button disabled={minQty > qty} type='submit' className="my-2 py-2 px-3 text-[20px] font-medium bg-blue-500 border-2 border-blue-500 text-white duration-300 ease-in-out hover:bg-transparent hover:text-blue-500 rounded-md">Order Now</button>
+                            <button disabled={parseInt(qty) < parseInt(minQty)} type='submit' className="my-2 py-2 px-3 text-[20px] font-medium bg-blue-500 border-2 border-blue-500 text-white duration-300 ease-in-out hover:bg-transparent hover:text-blue-500 rounded-md">Order Now</button>
                         </form>
                     </div>
                 </div>
