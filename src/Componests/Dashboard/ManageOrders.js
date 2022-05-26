@@ -82,6 +82,12 @@ const ManageOrders = () => {
                                         order?.status === "pending" &&
                                         <button onClick={() => handleStatus(order?._id)} disabled={order?.status !== "pending"} className="my-2 py-2 px-3 text-[20px] font-medium bg-blue-500 border-2 border-blue-500 text-white duration-300 ease-in-out hover:bg-transparent hover:text-blue-500 rounded-md">Shipped </button>
                                     }
+                                    {
+                                        order?.transactionId &&
+                                        <p className="text-[20px] dark:text-white font-medium">
+                                            {order?.transactionId.slice(0, 10)}...
+                                        </p>
+                                    }
                                 </td>
                             </tr>)
                         }
