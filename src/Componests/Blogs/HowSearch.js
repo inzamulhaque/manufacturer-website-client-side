@@ -12,7 +12,9 @@ const HowSearch = () => {
                     &#123;name: 'phone',brand: "Oppo",color:'silver',price: 21000	&#125;,
                     &#123;name: 'phone',brand: "iphone",color:'silver',price: 45000	&#125;
                     ]
-                    const spacificName = products.filter( product =&#62; product.name.toLowerCase().includes("hp"));
+                    <span>
+                        const spacificName = products.filter( product =&#62; product.name.toLowerCase().includes("hp"));
+                    </span>
                 </p>
             </div>
         </>

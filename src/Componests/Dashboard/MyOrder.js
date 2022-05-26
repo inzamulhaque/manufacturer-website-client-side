@@ -108,6 +108,13 @@ const MyOrder = () => {
                                         </button>
                                     </>}
 
+                                    {
+                                        order?.transactionId &&
+                                        <p className="text-[20px] dark:text-white font-medium">
+                                            {order?.transactionId}
+                                        </p>
+                                    }
+
                                 </td>
                             </tr>)
                         }
