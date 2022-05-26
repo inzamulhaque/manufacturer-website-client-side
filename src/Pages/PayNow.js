@@ -12,7 +12,7 @@ const PayNow = () => {
     const [order, setOrder] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://ih-electronics.herokuapp.com/order/${id}`, {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('jotToken')}`

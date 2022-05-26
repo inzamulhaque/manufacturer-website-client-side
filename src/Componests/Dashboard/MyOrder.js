@@ -9,7 +9,7 @@ const MyOrder = () => {
 
     // get orders for this user
     useEffect(() => {
-        fetch("http://localhost:5000/order", {
+        fetch("https://ih-electronics.herokuapp.com/order", {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('jotToken')}`
@@ -31,7 +31,7 @@ const MyOrder = () => {
             confirmButtonText: 'Yes!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/order?id=${order?._id}&itemId=${order?.itemId}&qty=${order?.qty}`, {
+                fetch(`https://ih-electronics.herokuapp.com/order?id=${order?._id}&itemId=${order?.itemId}&qty=${order?.qty}`, {
                     method: "DELETE",
                     headers: {
                         "authorization": `Bearer ${localStorage.getItem('jotToken')}`

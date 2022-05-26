@@ -6,7 +6,7 @@ const ManageOrders = () => {
 
     // get all orders
     useEffect(() => {
-        fetch("http://localhost:5000/allOrders", {
+        fetch("https://ih-electronics.herokuapp.com/allOrders", {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('jotToken')}`
@@ -18,7 +18,7 @@ const ManageOrders = () => {
 
     // update order status
     const handleStatus = (id) => {
-        fetch(`http://localhost:5000/shipped/${id}`, {
+        fetch(`https://ih-electronics.herokuapp.com/shipped/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

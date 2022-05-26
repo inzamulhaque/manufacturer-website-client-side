@@ -9,7 +9,7 @@ const EditItem = () => {
 
     // get item
     useEffect(() => {
-        fetch(`http://localhost:5000/item/${id}`, {
+        fetch(`https://ih-electronics.herokuapp.com/item/${id}`, {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('jotToken')}`
@@ -30,7 +30,7 @@ const EditItem = () => {
         const newMinOrder = event.target.minOrder.value || data?.minQty;
         const newDecs = event.target.desc.value || data?.desc;
 
-        fetch(`http://localhost:5000/item/${data?._id}`, {
+        fetch(`https://ih-electronics.herokuapp.com/item/${data?._id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

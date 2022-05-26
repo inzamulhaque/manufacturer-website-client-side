@@ -6,7 +6,7 @@ const ManageUser = () => {
     const [countUpdate, setCountUpdate] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/users", {
+        fetch("https://ih-electronics.herokuapp.com/users", {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('jotToken')}`
@@ -17,7 +17,7 @@ const ManageUser = () => {
     }, [countUpdate]);
 
     const handleMakeAdmin = (id, name) => {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`https://ih-electronics.herokuapp.com/users/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

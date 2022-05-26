@@ -8,7 +8,7 @@ import Loading from '../RequireAuth/Loading';
 const MyProfile = () => {
     const [user, loading, error] = useAuthState(auth);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { data: profile, isLoading, refetch } = useQuery("profile", () => fetch(`http://localhost:5000/profile/${user?.email}`, {
+    const { data: profile, isLoading, refetch } = useQuery("profile", () => fetch(`https://ih-electronics.herokuapp.com/profile/${user?.email}`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${localStorage.getItem('jotToken')}`
@@ -25,7 +25,7 @@ const MyProfile = () => {
         const city = data.city || profile?.city;
         const linkedin = data.linkedin || profile?.linkedin;
 
-        fetch(`http://localhost:5000/profile/${user?.email}`, {
+        fetch(`https://ih-electronics.herokuapp.com/profile/${user?.email}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json",

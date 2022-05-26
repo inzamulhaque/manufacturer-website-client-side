@@ -5,7 +5,7 @@ const StockSummary = () => {
     const [stock, setStock] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/stocksummary")
+        fetch("https://ih-electronics.herokuapp.com/stocksummary")
             .then(res => res.json())
             .then(data => setStock(data));
     }, [])

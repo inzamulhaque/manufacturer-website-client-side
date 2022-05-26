@@ -6,7 +6,7 @@ const AllItems = () => {
 
     // get all items
     useEffect(() => {
-        fetch("http://localhost:5000/item")
+        fetch("https://ih-electronics.herokuapp.com/item")
             .then(res => res.json())
             .then(data => setItems(data));
     }, []);

@@ -26,6 +26,7 @@ import AllItems from './Pages/AllItems';
 import EditItem from './Componests/Dashboard/EditItem';
 import UpdateQty from './Componests/Dashboard/UpdateQty';
 import ManageUser from './Componests/Dashboard/ManageUser';
+import Blogs from './Pages/Blogs';
 
 // Import styles
 import './App.css';
@@ -91,6 +92,7 @@ function App() {
           <Route path="/paynow/:id" element={<RequirAuth>
             <PayNow />
           </RequirAuth>} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

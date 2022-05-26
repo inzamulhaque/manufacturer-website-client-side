@@ -11,7 +11,7 @@ import useLogOut from '../hooks/useLogOut';
 const Dashboard = () => {
     const [user, loading, error] = useAuthState(auth);
     const [logOut] = useLogOut();
-    const { data: myUser, isLoading } = useQuery("myUser", () => fetch(`http://localhost:5000/user/${user.email}`, {
+    const { data: myUser, isLoading } = useQuery("myUser", () => fetch(`https://ih-electronics.herokuapp.com/user/${user.email}`, {
         method: "GET",
         headers: {
             "authorization": `Bearer ${localStorage.getItem('jotToken')}`

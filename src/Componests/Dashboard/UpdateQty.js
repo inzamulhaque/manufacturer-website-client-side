@@ -10,7 +10,7 @@ const UpdateQty = () => {
 
     // get item
     useEffect(() => {
-        fetch(`http://localhost:5000/item/${id}`, {
+        fetch(`https://ih-electronics.herokuapp.com/item/${id}`, {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('jotToken')}`
@@ -25,7 +25,7 @@ const UpdateQty = () => {
     // handle Remanufacture
     const handleRemanufacture = () => {
         const availableQty = parseInt(data?.availableQty) + parseInt(updatedQty);
-        fetch(`http://localhost:5000/item/${data?._id}`, {
+        fetch(`https://ih-electronics.herokuapp.com/item/${data?._id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",
@@ -43,7 +43,7 @@ const UpdateQty = () => {
     // handle Sell Off Line
     const handleSellOffLine = () => {
         const availableQty = parseInt(data?.availableQty) - parseInt(updatedQty);
-        fetch(`http://localhost:5000/item/${data?._id}`, {
+        fetch(`https://ih-electronics.herokuapp.com/item/${data?._id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json",

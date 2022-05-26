@@ -33,7 +33,7 @@ const AddItem = () => {
                         img: img
                     };
 
-                    fetch("http://localhost:5000/additem", {
+                    fetch("https://ih-electronics.herokuapp.com/additem", {
                         method: "POST",
                         headers: {
                             "content-type": "application/json",

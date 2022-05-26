@@ -4,7 +4,7 @@ const useNewUser = () => {
     const [token, setToken] = useState(localStorage.getItem("jotToken") || "");
     function setUser(email, name, role = "user") {
         if (email) {
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://ih-electronics.herokuapp.com/user/${email}`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

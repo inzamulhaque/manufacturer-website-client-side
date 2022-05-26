@@ -12,7 +12,7 @@ const BuyNow = () => {
 
     // fetch data
     useEffect(() => {
-        fetch(`http://localhost:5000/item/${id}`, {
+        fetch(`https://ih-electronics.herokuapp.com/item/${id}`, {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('jotToken')}`
@@ -42,7 +42,7 @@ const BuyNow = () => {
             totalCost: totalPrice
         };
 
-        fetch("http://localhost:5000/order", {
+        fetch("https://ih-electronics.herokuapp.com/order", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

@@ -5,7 +5,7 @@ const LatestTools = () => {
     const [tool, setTool] = useState({});
 
     useEffect(() => {
-        fetch("http://localhost:5000/homeitem?limit=1")
+        fetch("https://ih-electronics.herokuapp.com/homeitem?limit=1")
             .then(res => res.json())
             .then(data => setTool(data[0]));
     }, []);

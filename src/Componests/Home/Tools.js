@@ -8,7 +8,7 @@ const Tools = () => {
     const [tools, setTools] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/homeitem?limit=6")
+        fetch("https://ih-electronics.herokuapp.com/homeitem?limit=6")
             .then(res => res.json())
             .then(data => setTools(data))
     }, []);

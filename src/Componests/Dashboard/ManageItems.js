@@ -8,7 +8,7 @@ const ManageItems = () => {
 
     // get all items
     useEffect(() => {
-        fetch("http://localhost:5000/item")
+        fetch("https://ih-electronics.herokuapp.com/item")
             .then(res => res.json())
             .then(data => setAllItems(data));
     }, [countDelete]);
@@ -25,7 +25,7 @@ const ManageItems = () => {
             confirmButtonText: 'Yes!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/item/${id}`, {
+                fetch(`https://ih-electronics.herokuapp.com/item/${id}`, {
                     method: "DELETE",
                     headers: {
                         "authorization": `Bearer ${localStorage.getItem('jotToken')}`

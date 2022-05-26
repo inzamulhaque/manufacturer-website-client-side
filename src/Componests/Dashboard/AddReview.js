@@ -12,7 +12,7 @@ const AddReview = () => {
     const [countAddReview, setCountAddReview] = useState(0);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review/${user?.email}`, {
+        fetch(`https://ih-electronics.herokuapp.com/review/${user?.email}`, {
             method: "GET",
             headers: {
                 "authorization": `Bearer ${localStorage.getItem('jotToken')}`
@@ -40,7 +40,7 @@ const AddReview = () => {
             rating: parseFloat(event.target.rating.value),
             ratingMsg: event.target.ratingMsg.value
         };
-        fetch("http://localhost:5000/review", {
+        fetch("https://ih-electronics.herokuapp.com/review", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
