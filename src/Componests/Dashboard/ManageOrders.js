@@ -84,7 +84,7 @@ const ManageOrders = () => {
                                     }
                                     {
                                         order?.transactionId &&
-                                        <p className="text-[20px] dark:text-white font-medium">
+                                        <p title={order?.transactionId} className="text-[20px] dark:text-white font-medium">
                                             {order?.transactionId.slice(0, 10)}...
                                         </p>
                                     }
