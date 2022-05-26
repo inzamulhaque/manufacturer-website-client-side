@@ -44,6 +44,7 @@ const ManageOrders = () => {
                             <th className='border md:border-2 border-slate-300 md:py-1 md:px-2'>Quantity</th>
                             <th className='border md:border-2 border-slate-300 md:py-1 md:px-2'>Total Amount</th>
                             <th className='border md:border-2 border-slate-300 md:py-1 md:px-2'>Status</th>
+                            <th className='border md:border-2 border-slate-300 md:py-1 md:px-2'>Delivery Info.</th>
                             <th className='border md:border-2 border-slate-300 md:py-1 md:px-2'>Action</th>
                         </tr>
                     </thead>
@@ -69,6 +70,11 @@ const ManageOrders = () => {
                                 </td>
                                 <td className='text-center border md:border-2 border-slate-300 md:py-1 md:px-2'>
                                     {order?.status}
+                                </td>
+                                <td className='text-center border md:border-2 border-slate-300 md:py-1 md:px-2'>
+                                    {order?.phone}
+                                    <br />
+                                    {order?.address}
                                 </td>
                                 <td className='text-center border md:border-2 border-slate-300 md:py-1 md:px-2'>
                                     {/* add status update button */}

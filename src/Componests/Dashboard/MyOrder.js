@@ -67,6 +67,7 @@ const MyOrder = () => {
                             <th className='border md:border-2 border-slate-300 md:py-1 md:px-2'>Quantity</th>
                             <th className='border md:border-2 border-slate-300 md:py-1 md:px-2'>Total Price</th>
                             <th className='border md:border-2 border-slate-300 md:py-1 md:px-2'>Status</th>
+                            <th className='border md:border-2 border-slate-300 md:py-1 md:px-2'>Delivery Info.</th>
                             <th className='border md:border-2 border-slate-300 md:py-1 md:px-2 text-red-500'>Action</th>
                         </tr>
                     </thead>
@@ -91,6 +92,11 @@ const MyOrder = () => {
                                 </td>
                                 <td className='text-center border md:border-2 border-slate-300 md:py-1 md:px-2'>
                                     {order?.status}
+                                </td>
+                                <td className='text-center border md:border-2 border-slate-300 md:py-1 md:px-2'>
+                                    {order?.phone}
+                                    <br />
+                                    {order?.address}
                                 </td>
                                 <td className='text-center border md:border-2 border-slate-300 md:py-1 md:px-2'>
                                     {order?.paid || <>
